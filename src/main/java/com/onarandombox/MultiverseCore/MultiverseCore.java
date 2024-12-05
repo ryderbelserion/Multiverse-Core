@@ -1050,9 +1050,9 @@ public class MultiverseCore extends JavaPlugin implements MVPlugin, Core {
      *
      * @return The {@link MVChatListener}.
      */
-    public MVChatListener getChatListener() {
-        return this.chatListener;
-    }
+    //public MVChatListener getChatListener() {
+    //    return this.chatListener;
+    //}
 
     /**
      * Gets the {@link MVEntityListener}.
