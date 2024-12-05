@@ -318,24 +318,24 @@ public class MultiverseCore extends JavaPlugin implements MVPlugin, Core {
 
         // Now set the firstspawnworld (after the worlds are loaded):
         this.worldManager.setFirstSpawnWorld(getMVConfig().getFirstSpawnWorld());
-        try {
-            getMVConfig().setFirstSpawnWorld(this.worldManager.getFirstSpawnWorld().getName());
-        } catch (NullPointerException e) {
-            // A test that had no worlds loaded was being run. This should never happen in production
-        }
+        //try {
+        //    getMVConfig().setFirstSpawnWorld(this.worldManager.getFirstSpawnWorld().getName());
+        //} catch (NullPointerException e) {
+        //    // A test that had no worlds loaded was being run. This should never happen in production
+        //}
         this.saveMVConfig();
         // Register async or sync player chat according to config
-        try {
-            Class.forName("org.bukkit.event.player.AsyncPlayerChatEvent");
-        } catch (ClassNotFoundException e) {
-            getMVConfig().setUseAsyncChat(false);
-        }
-        if (getMVConfig().getUseAsyncChat()) {
-            this.chatListener = new MVAsyncPlayerChatListener(this, this.playerListener);
-        } else {
-            this.chatListener = new MVPlayerChatListener(this, this.playerListener);
-        }
-        getServer().getPluginManager().registerEvents(this.chatListener, this);
+        //try {
+        //    Class.forName("org.bukkit.event.player.AsyncPlayerChatEvent");
+        //} catch (ClassNotFoundException e) {
+        //    getMVConfig().setUseAsyncChat(false);
+        //}
+        //if (getMVConfig().getUseAsyncChat()) {
+        //    this.chatListener = new MVAsyncPlayerChatListener(this, this.playerListener);
+        //} else {
+        //    this.chatListener = new MVPlayerChatListener(this, this.playerListener);
+        //}
+        //getServer().getPluginManager().registerEvents(this.chatListener, this);
 
         this.initializeBuscript();
         this.setupMetrics();
@@ -394,7 +394,7 @@ public class MultiverseCore extends JavaPlugin implements MVPlugin, Core {
         pm.registerEvents(this.entityListener, this);
         pm.registerEvents(this.weatherListener, this);
         pm.registerEvents(this.portalListener, this);
-        Logging.info(ChatColor.GREEN + "We are aware of the warning about the deprecated event. There is no alternative that allows us to do what we need to do and performance impact is negligible. It is safe to ignore.");
+        //Logging.info(ChatColor.GREEN + "We are aware of the warning about the deprecated event. There is no alternative that allows us to do what we need to do and performance impact is negligible. It is safe to ignore.");
         pm.registerEvents(this.worldListener, this);
         pm.registerEvents(new MVMapListener(this), this);
     }
